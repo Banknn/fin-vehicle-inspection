@@ -1,0 +1,22 @@
+@font-face {
+	font-family: anakotmai;
+	src: url(./themes/font/Anakotmai/desktop/ttf/Anakotmai-Light.ttf) format('woff');
+}
+
+@font-face {
+	font-family: anakotmai-bold;
+	src: url(./themes/font/Anakotmai/desktop/ttf/Anakotmai-Medium.ttf) format('woff');
+}
+
+* {
+	font-family: anakotmai;
+}
+
+html,
+body {
+	margin: 0;
+}
+
+.ReactCollapse--collapse {
+	transition: height 1s;
+}

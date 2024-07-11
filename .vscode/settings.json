@@ -1,0 +1,35 @@
+{
+	"gitlens.advanced.messages": {
+		"suppressGitMissingWarning": true
+	},
+	"workbench.iconTheme": "material-icon-theme",
+	"[javascript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"prettier.semi": false,
+	"prettier.jsxSingleQuote": true,
+	"prettier.singleQuote": true,
+	"prettier.useTabs": true,
+	"prettier.tabWidth": 2,
+	"editor.tabSize": 2,
+	"[html]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"sonarlint.ls.javaHome": "c:\\Users\\apisek.boo\\.vscode\\extensions\\sonarsource.sonarlint_managed-jre\\jre\\jdk-11.0.11+9-jre",
+	"[json]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[jsonc]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+  "workbench.colorTheme": "Default Dark+",
+	"git.autofetch": true,
+	"[typescriptreact]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[typescript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+  "editor.detectIndentation": false,
+  "workbench.editor.empty.hint": "hidden"
+}
