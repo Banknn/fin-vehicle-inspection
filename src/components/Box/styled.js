@@ -625,6 +625,14 @@ export const BoxComponent = styled.div`
 				return css`
 					margin: 20px 0 0 0;
 				`
+      case 'detail-header-wrapper':
+        return css`
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          border-bottom: 4px solid ${THEME.COLORS.RED_2};
+          padding: 10px 35px;
+        `
 			default:
 				css``
 		}

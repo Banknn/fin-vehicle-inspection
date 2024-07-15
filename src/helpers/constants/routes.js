@@ -191,4 +191,28 @@ export const ROUTE_PATH = {
 		NAME: 'REPORTLOGERROR',
 		LINK: '/accountreport/reportlogerror',
 	},
+  TAXRENEW: {
+		NAME: 'TAXRENEW',
+		LINK: '/TaxRenew',
+	},
+  EDIT: {
+		NAME: 'EDIT',
+		LINK: '/TaxRenew/Edit',
+	},
+  TAXBILL: {
+		NAME: 'TAXBILL',
+		LINK: '/TaxBill',
+	},
+  STATUS: {
+		NAME: 'STATUS',
+		LINK: '/Status',
+	},
+  DETAIL: {
+		NAME: 'DETAIL',
+		LINK: '/Status/Detail',
+	},
+  WAITRENEW: {
+		NAME: 'WAITRENEW',
+		LINK: '/WaitRenew',
+	},
 }

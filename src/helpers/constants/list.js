@@ -180,6 +180,15 @@ export const LIST = {
 				disabled: role !== 4,
 				hidden: role !== 4,
 			},
+			{
+				key: 60,
+				text: (
+					<>
+						<WalletOutlined /> ติดตามสถานะ
+					</>
+				),
+				onClick: () => redirect(`${ROUTE_PATH.STATUS.LINK}`),
+			},
 			// {
 			// 	key: 52,
 			// 	text: (
@@ -302,6 +311,12 @@ export const LIST = {
 							status === 'notview' ||
 							!checkCustomer(cuscode) ||
 							(isAdmin === 1 && [3, 5].includes(role)),
+					},
+					{
+						key: 61,
+						text: 'รอรับงานต่อภาษี',
+						onClick: () =>
+							redirect(`${ROUTE_PATH.WAITRENEW.LINK}`),
 					},
 					// { key: 9, text: 'รายงานค่าคอม' },
 					// { key: 10, text: 'รายงานต่ออายุ' },

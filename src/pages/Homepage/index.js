@@ -381,6 +381,17 @@ const Homepage = () => {
 						/>
 						<Label className='menu-lb'>แจ้งงาน ประกัน / พ.ร.บ.</Label>
 					</Card>
+					<Card
+						className='menu-card'
+						onClick={() => redirect(ROUTE_PATH.TAXRENEW.LINK)}
+					>
+						<Image
+							src={IMAGES['tax.png']}
+							alt='work-waiting'
+							className='menu-img'
+						/>
+						<Label className='menu-lb'>ต่อภาษี</Label>
+					</Card>
 					{checkCustomer(user.cuscode) && (
 						<Card
 							className='menu-card'

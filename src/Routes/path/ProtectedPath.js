@@ -32,6 +32,48 @@ export const ProtectedPath = [
 		auth: true,
 		component: lazy(() => import('../../pages/CarInsurance')),
 	},
+	{
+		path: `${ROUTE_PATH.TAXBILL.LINK}`,
+		exact: true,
+		auth: true,
+		component: lazy(() => import('../../pages/TaxBill')),
+	},
+	{
+		path: `${ROUTE_PATH.TAXRENEW.LINK}`,
+		exact: true,
+		auth: true,
+		component: lazy(() => import('../../pages/TaxRenew')),
+	},
+	{
+		path: `${ROUTE_PATH.EDIT.LINK}`,
+		exact: true,
+		auth: true,
+		component: lazy(() => import('../../pages/TaxRenew/Edit')),
+	},
+	{
+		path: `${ROUTE_PATH.STATUS.LINK}`,
+		exact: true,
+		auth: true,
+		component: lazy(() => import('../../pages/Status')),
+	},
+	{
+		path: `${ROUTE_PATH.DETAIL.LINK}`,
+		exact: true,
+		auth: true,
+		component: lazy(() => import('../../pages/Status/Detail')),
+	},
+	{
+		path: `${ROUTE_PATH.WAITRENEW.LINK}`,
+		exact: true,
+		auth: true,
+		component: lazy(() => import('../../pages/WaitRenew')),
+	},
+	{
+		path: `${ROUTE_PATH.WAITRENEW.LINK}/Detail`,
+		exact: true,
+		auth: true,
+		component: lazy(() => import('../../pages/WaitRenew/Detail')),
+	},
 	// {
 	// 	path: `${ROUTE_PATH.TAX_CALCULATOR.LINK}`,
 	// 	exact: true,
