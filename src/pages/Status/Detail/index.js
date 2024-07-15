@@ -184,8 +184,6 @@ const Detail = () => {
           <Box style={{ margin: '10px', width: '100%' }}>แนบสลิป</Box>
           <Box style={{ width: '100%', textAlign: 'center' }}>
             <Dragger {...props}>
-              {console.log(fileInput)}
-              {console.log(Object.keys(fileInput).length)}
               {Object.keys(fileInput).length === 0 ? 'สลิปการโอนเงิน' : fileInput?.file?.name}
             </Dragger>
           </Box>
