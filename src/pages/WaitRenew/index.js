@@ -45,7 +45,7 @@ import {
 } from '../../apiServices'
 import { loadingAction, customerAction } from '../../actions'
 
-const Status = () => {
+const WaitRenew = () => {
 
   const [workType, setWorkType] = useState()
   const [typeInsure, setTypeInsure] = useState()
@@ -125,4 +125,4 @@ const Status = () => {
   )
 }
 
-export default Status
+export default WaitRenew

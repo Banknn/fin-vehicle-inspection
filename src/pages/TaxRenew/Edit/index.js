@@ -41,7 +41,7 @@ import {
 import { loadingAction, customerAction } from '../../../actions'
 import { THEME } from '../../../themes'
 
-const TaxRenew = () => {
+const RenewEdit = () => {
 	const dispatch = useDispatch()
 	const customer = useSelector((state) => state.customerReducer)
 	const premistions = useSelector((state) => state.premissionsReducer)
@@ -1779,7 +1779,7 @@ const TaxRenew = () => {
 	)
 }
 
-export default TaxRenew
+export default RenewEdit
 
 const idCardAndPassport = (isPassport, setIsPassport) => {
 	return (

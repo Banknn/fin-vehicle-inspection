@@ -44,7 +44,7 @@ import { THEME } from '../../../themes'
 const { TextArea } = InputAntd
 const { Dragger } = Upload
 
-const TaxRenew = () => {
+const RenewDetail = () => {
 
   const props = {
 		name: 'file',
@@ -1922,7 +1922,7 @@ const TaxRenew = () => {
 	)
 }
 
-export default TaxRenew
+export default RenewDetail
 
 const idCardAndPassport = (isPassport, setIsPassport) => {
 	return (

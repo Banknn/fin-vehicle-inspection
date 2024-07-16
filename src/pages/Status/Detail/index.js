@@ -126,79 +126,83 @@ const Detail = () => {
   ]
 
   return (
-    <DetailLayout
-      isPreve={true}
-      onClickPrevious={() => redirect(ROUTE_PATH.STATUS.LINK)}
-    >
-      <Row justify='end' style={{ marginRight: '10px' }}>
-        <Button className='accept-btn' style={{ width: '120px' }}
-          onClick={()=>redirect(ROUTE_PATH.EDIT.LINK)}
-        >
-          <EditOutlined/>
-          แก้ไขข้อมูล
-        </Button>
-      </Row>
-      <Label className='title-form'>รายละเอียดติดตามงาน</Label>
-      <Row gutter={[8, 8]} justify='center'>
-        {
-          formInfo.map((item)=> {
-            const { title, checkOpenInfo, setCheckOpenInfo, detail } = item
-            return (
-              !item.hide && (
-              <Col xs={24} lg={12}>
-                <Box style={{ boxShadow: '0px 0px 8px 0px rgba(0, 0, 0, 0.2)', margin: '10px', padding: 0 }}>
-                  <Box className='detail-header-wrapper' onClick={()=> {setCheckOpenInfo(!checkOpenInfo)}}>
-                    {title}
+    <>
+      <DetailLayout
+        isPreve={true}
+        onClickPrevious={() => redirect(ROUTE_PATH.STATUS.LINK)}
+      >
+        <Row justify='end' style={{ marginRight: '10px' }}>
+          <Button className='accept-btn' style={{ width: '120px' }}
+            onClick={()=>redirect(ROUTE_PATH.EDIT.LINK)}
+          >
+            <EditOutlined/>
+            แก้ไขข้อมูล
+          </Button>
+        </Row>
+        <Label className='title-form'>รายละเอียดติดตามงาน</Label>
+        <Row gutter={[8, 8]} justify='center'>
+          {
+            formInfo.map((item)=> {
+              const { title, checkOpenInfo, setCheckOpenInfo, detail } = item
+              return (
+                !item.hide && (
+                <Col xs={24} lg={12}>
+                  <Box style={{ boxShadow: '0px 0px 8px 0px rgba(0, 0, 0, 0.2)', margin: '10px', padding: 0 }}>
+                    <Box className='detail-header-wrapper' onClick={()=> {setCheckOpenInfo(!checkOpenInfo)}}>
+                      {title}
+                      {
+                        !checkOpenInfo ? 
+                        <DownOutlined style={{ color: THEME.COLORS.RED_2, fontSize: '30px' }}/> : 
+                        <UpOutlined style={{ color: THEME.COLORS.RED_2, fontSize: '30px' }}/>
+                      }
+                    </Box>
                     {
-                      !checkOpenInfo ? 
-                      <DownOutlined style={{ color: THEME.COLORS.RED_2, fontSize: '30px' }}/> : 
-                      <UpOutlined style={{ color: THEME.COLORS.RED_2, fontSize: '30px' }}/>
+                      checkOpenInfo &&
+                      <Box style={{ width: '100%', minHeight: '20px' }}>
+                        {detail}
+                      </Box>
                     }
                   </Box>
-                  {
-                    checkOpenInfo &&
-                    <Box style={{ width: '100%', minHeight: '20px' }}>
-                      {detail}
-                    </Box>
-                  }
-                </Box>
-              </Col>
-              )
-            )}
-          )
-        }
-      </Row>
-      <Label className='title-form' style={{ marginTop: '20px' }}>ชำระเงินส่วนต่าง</Label>
-      <Row justify='center'>
-        <Col xs={24} lg={24} style={{ margin: '5px' }}>
-          <Box style={{ margin: '10px', width: '100%' }}>เลือกธนาคารที่ต้องการโอน</Box>
-          <Select style={{ width: '100%' }}
-            label=""
-            value={selectedBank}
-            onChange={(value) => {setSelectedBank(value)}}
-            options={bankList}
-            placeholder="กรุณาเลือกธนาคาร"
-          />
-        </Col>
-        <Col xs={24} lg={24} style={{ margin: '5px' }}>
-          <Box style={{ margin: '10px', width: '100%' }}>แนบสลิป</Box>
-          <Box style={{ width: '100%', textAlign: 'center' }}>
-            <Dragger {...props}>
-              {Object.keys(fileInput).length === 0 ? 'สลิปการโอนเงิน' : fileInput?.file?.name}
-            </Dragger>
-          </Box>
-        </Col>
-      </Row>
-      <Box className='accept-group-btn-wrapper'>
-        <Button
-          className='accept-btn'
-          width='200'
-          onClick={()=>{}}
-        >
-          ส่งข้อมูล
-        </Button>
-      </Box>
-    </DetailLayout>
+                </Col>
+                )
+              )}
+            )
+          }
+        </Row>
+      </DetailLayout>
+      <DetailLayout>
+        <Label className='title-form' style={{ marginTop: '20px' }}>ชำระเงินส่วนต่าง</Label>
+        <Row justify='center'>
+          <Col xs={24} lg={24} style={{ margin: '5px' }}>
+            <Box style={{ margin: '10px', width: '100%' }}>เลือกธนาคารที่ต้องการโอน</Box>
+            <Select style={{ width: '100%' }}
+              label=""
+              value={selectedBank}
+              onChange={(value) => {setSelectedBank(value)}}
+              options={bankList}
+              placeholder="กรุณาเลือกธนาคาร"
+            />
+          </Col>
+          <Col xs={24} lg={24} style={{ margin: '5px' }}>
+            <Box style={{ margin: '10px', width: '100%' }}>แนบสลิป</Box>
+            <Box style={{ width: '100%', textAlign: 'center' }}>
+              <Dragger {...props}>
+                {Object.keys(fileInput).length === 0 ? 'สลิปการโอนเงิน' : fileInput?.file?.name}
+              </Dragger>
+            </Box>
+          </Col>
+        </Row>
+        <Box className='accept-group-btn-wrapper'>
+          <Button
+            className='accept-btn'
+            width='200'
+            onClick={()=>{}}
+          >
+            ส่งข้อมูล
+          </Button>
+        </Box>
+      </DetailLayout>
+    </>
   )
 }
 
