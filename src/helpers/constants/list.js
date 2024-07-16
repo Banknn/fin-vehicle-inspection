@@ -104,7 +104,7 @@ export const LIST = {
 		return arr
 	},
 	MENU: (hidden, isAdmin, role, status, cuscode) => {
-		// key 60
+		// key 64
 		let menuList = [
 			{
 				key: 1,
@@ -181,7 +181,7 @@ export const LIST = {
 				hidden: role !== 4,
 			},
 			{
-				key: 60,
+				key: 61,
 				text: (
 					<>
 						<WalletOutlined /> ติดตามสถานะ
@@ -313,10 +313,16 @@ export const LIST = {
 							(isAdmin === 1 && [3, 5].includes(role)),
 					},
 					{
-						key: 61,
+						key: 62,
 						text: 'รอรับงานต่อภาษี',
 						onClick: () =>
 							redirect(`${ROUTE_PATH.WAITRENEW.LINK}`),
+					},
+					{
+						key: 63,
+						text: 'สถานะงานต่อภาษี',
+						onClick: () =>
+							redirect(`${ROUTE_PATH.STATUSRENEW.LINK}`),
 					},
 					// { key: 9, text: 'รายงานค่าคอม' },
 					// { key: 10, text: 'รายงานต่ออายุ' },

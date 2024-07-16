@@ -215,4 +215,8 @@ export const ROUTE_PATH = {
 		NAME: 'WAITRENEW',
 		LINK: '/WaitRenew',
 	},
+  STATUSRENEW: {
+		NAME: 'STATUSRENEW',
+		LINK: '/StatusRenew',
+	},
 }

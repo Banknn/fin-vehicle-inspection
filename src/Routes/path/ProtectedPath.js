@@ -74,6 +74,18 @@ export const ProtectedPath = [
 		auth: true,
 		component: lazy(() => import('../../pages/WaitRenew/Detail')),
 	},
+	{
+		path: `${ROUTE_PATH.STATUSRENEW.LINK}`,
+		exact: true,
+		auth: true,
+		component: lazy(() => import('../../pages/StatusRenew')),
+	},
+	{
+		path: `${ROUTE_PATH.STATUSRENEW.LINK}/Detail`,
+		exact: true,
+		auth: true,
+		component: lazy(() => import('../../pages/StatusRenew/Detail')),
+	},
 	// {
 	// 	path: `${ROUTE_PATH.TAX_CALCULATOR.LINK}`,
 	// 	exact: true,
