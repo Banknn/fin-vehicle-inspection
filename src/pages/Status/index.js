@@ -43,21 +43,93 @@ import {
 	paymentController,
 	systemController,
 } from '../../apiServices'
-import { loadingAction, customerAction } from '../../actions'
+import { loadingAction, customerAction, orderAction } from '../../actions'
+import { THEME } from '../../themes'
+import { orderReducer } from '../../reducers/orderReducer'
 
 const Status = () => {
 
+  const dispatch = useDispatch()
+
   const [workType, setWorkType] = useState()
   const [typeInsure, setTypeInsure] = useState()
-  const [search, setSearch] = useState()
+  const [search, setSearch] = useState('')
+  const [result, setResult] = useState([])
+
+  const fetchVehicle = async()=>{
+    dispatch(loadingAction(true))
+    const params = {
+      "filter": "ประกันรถ",
+      "keyword": '',
+      "offset": ""
+    }
+    const API = systemController()
+    const res = await API.getFollowAll(params)
+    if(isValidResponse(res)) {
+      let arr = res.result
+      arr = arr.map((e,i)=>{
+        return {
+          key: i,
+          no: i+1,
+          info: (
+            <Button
+              style={{
+                border: 'none',
+                padding: '5px 20px 5px 20px',
+                borderRadius: '5px',
+                background: THEME.COLORS.RED_2,
+                color: THEME.COLORS.WHITE
+              }}
+              onClick={()=>{
+                dispatch(orderAction(e))
+                redirect(`${ROUTE_PATH.STATUS.LINK}/detail`)
+              }}
+            >
+              ดูข้อมูล
+            </Button>
+          ),
+          quonum: e.quo_num,
+          name: e.name,
+          idcar: `${e.idcar} ${e.carprovince}`,
+          tel: convertStrToFormat(e.tel, 'phone_number'),
+          status: 
+            e.status === 'success' ? 'ชำระเงินเรียบร้อย' : 
+            e.status === 'success-waitinstall' ? 'รอชำระเงิน' : 
+            '-',
+        }
+      })
+      setResult(arr)
+      dispatch(loadingAction(false))
+    }
+    dispatch(loadingAction(false))
+  }
+
+  useEffect(()=>{
+    fetchVehicle()
+  },[])
+
+  const searchFilter = (arr) => {
+    return arr.filter((item)=>
+      item.quonum.toLowerCase().includes(search.toLowerCase()) ||
+      item.name.toLowerCase().includes(search.toLowerCase()) ||
+      item.idcar.toLowerCase().includes(search.toLowerCase())
+    )
+  }
 
   const columns = [
+		{
+			title: 'ลำดับ',
+			dataIndex: 'no',
+			key: 'no',
+			align: 'center',
+			width: 100,
+		},
 		{
 			title: 'ดูข้อมูล',
 			dataIndex: 'info',
 			key: 'info',
 			align: 'center',
-			width: 150,
+			width: 200,
 		},
 		{
 			title: 'เลขรายการ',
@@ -137,7 +209,8 @@ const Status = () => {
 										options={typeInsureList}
 										onChange={(e) => {setTypeInsure(e)}}
                     value={(typeInsure)}
-									/>
+                    disabled
+                  />
 								</Box>
                 <Box className='filter-input' width='200'>
 									<Label>ประเภทงาน</Label>
@@ -147,7 +220,8 @@ const Status = () => {
 										options={workTypeList}
 										onChange={(e) => {setWorkType(e)}}
                     value={(workType)}
-									/>
+                    disabled
+                  />
 								</Box>
 								<Box className='filter-input' width='200'>
 									<Label>ค้นหา</Label>
@@ -157,19 +231,19 @@ const Status = () => {
 										onChange={(e) => {setSearch(e.target.value)}}
 									/>
 								</Box>
-								<Box className='filter-input' width='100'>
+								{/* <Box className='filter-input' width='100'>
 									<Button className='select-btn' onClick={()=>{}}>
 										<SearchOutlined style={{ marginRight: '5px' }} />
 										ค้นหา
 									</Button>
-								</Box>
+								</Box> */}
 							</Box>
 						</Box>
             <Box className='report-table'>
               <Table
                 // rowSelection={rowSelection}
                 columns={columns}
-                // dataSource={data}
+                dataSource={searchFilter(result)}
                 className='report-data-table'
                 size='middle'
               />

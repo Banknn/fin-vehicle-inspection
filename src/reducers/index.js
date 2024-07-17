@@ -16,6 +16,7 @@ import { creditListReducer } from './creditListReducer'
 import { detailSlipBillReducer } from './detailSlipBillReducer'
 import { installmentReducer } from './installmentReducer'
 import { popupReducer } from './popupReducer'
+import { orderReducer } from './orderReducer'
 
 export const rootReducer = combineReducers({
 	routeHistoryRedux,
@@ -35,4 +36,5 @@ export const rootReducer = combineReducers({
 	detailSlipBillReducer,
 	installmentReducer,
 	popupReducer,
+  orderReducer
 })

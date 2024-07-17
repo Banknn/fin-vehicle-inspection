@@ -14,6 +14,7 @@ export const THEME = {
 		GRAY: '#585858',
 		GRAY2: '#939393',
 		GRAY3: '#E7E7E7',
+		GRAY4: '#BDBDBD',
 		GREEN: '#3CB371',
 		GREEN2: '#81A854',
 		GREEN3: '#EAF1E4',

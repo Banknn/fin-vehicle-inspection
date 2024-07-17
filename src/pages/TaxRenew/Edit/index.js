@@ -1684,7 +1684,7 @@ const RenewEdit = () => {
 	return (
 		<DetailLayout
 			isPreve={true}
-			onClickPrevious={() => redirect(ROUTE_PATH.HOMEPAGE.LINK)}
+			onClickPrevious={() => redirect(`${ROUTE_PATH.STATUS.LINK}/detail`)}
 			// onClickForward={() => redirect(ROUTE_PATH.CAR_INSURANCE.LINK)}
 			// isStep={true}
 		>

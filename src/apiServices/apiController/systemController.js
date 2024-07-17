@@ -264,5 +264,21 @@ export const systemController = (configService) => {
 				body: { ...params },
 			})
 		},
+    getFollowAll: (params) => {
+      return service.post({
+        url: 'https://fininsurance.co.th:2022/api/v1/insurance/system/get_follow_all',
+        body: params,
+      })
+    },
+    getDetailPlanByQuo: (quo_num) => {
+      return service.get({
+        url: `https://fininsurance.co.th:2022/api/v1/insurance/system/get_detailplan_by_quonum?quo_num=${quo_num}`,
+      })
+    },
+    getDetailFollow: (quo_num) => {
+      return service.get({
+        url: `https://fininsurance.co.th:2022/api/v1/insurance/system/get_detail_follow?quo_num=${quo_num}`,
+      })
+    },
 	}
 }
